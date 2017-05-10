@@ -6,8 +6,8 @@ block content
     br
     .col-md-4.col-md-offset-4
       h3 Search Users
-      if obj
-        p.retr User Has been retrived successfully!
+      if message
+        p.retr #{message}
       else if error
         p.warn User doesn't exist. Try creating a new one or type the right ID
       form.navbar-form.navbar-left(role='search', method='POST', action='/users/search')

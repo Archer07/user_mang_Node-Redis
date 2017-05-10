@@ -86,13 +86,11 @@ app.post('/users', function(req, res, next) {
       age = req.body.age,
       occup = req.body.occup;
       client.hmset(id, {name:name, age:age, occup: occup}, function() {
-        console.log('data have been entered to databse!');
+        console.log('data have been entered to databse!')
+        res.render('addsuccess');
+      });
 
-      });
-      res.render('main', {
-        obj: {name:name, age:age, occup:occup},
-        message: 'User Has been Added successfully!'
-      });
+
 })
 
 
