@@ -1,7 +1,26 @@
+
 .container-fluid
  h3 Search Users
+ if obj
+  p.retr #{message}
+ else
+  p.warn #{error}
  form.navbar-form.navbar-left(role='search' method="POST" action="/users/search")
         .form-group
           input.form-control(type='text', placeholder='Search users by ID', name='id')
         |
         button.btn.btn-default(type='submit' value="search") Submit
+
+ br
+ br
+ br
+ if obj
+  h2 User Info:
+  h3 Username:
+  p #{obj.name}
+
+  h3 User age:
+  p #{obj.age}
+
+  h3 User Occupation:
+  p #{obj.occup}
