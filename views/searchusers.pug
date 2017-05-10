@@ -24,3 +24,11 @@
 
   h3 User Occupation:
   p #{obj.occup}
+
+
+  form.navbar-form.navbar-left(role='add' method="POST" action="/users")
+       .form-group
+         input.form-control(type='text', placeholder='Username or ID', name='id')
+         input.form-control(type='text', placeholder='Full name', name='name')
+         input.form-control(type='text', placeholder='Age', name='age')
+         input.form-control(type='text', placeholder='Occupation', name='occup')

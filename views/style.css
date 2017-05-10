@@ -1,0 +1,16 @@
+/* home styling */
+
+.headertitle {
+  text-align: center;
+  color: red;
+}
+
+
+.warn {
+color: red;
+font-weight: bold;
+}
+.retr {
+  color:green;
+  font-weight: bold;
+}

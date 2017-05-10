@@ -1,0 +1,49 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='Simple user managenemt app with NodeJS and Redis')
+    meta(name='author', content='Ayoub Nejjari')
+    title User managenemt with NodeJS and Redis
+    link(rel='stylesheet' href='https://bootswatch.com/flatly/bootstrap.min.css')
+    link(rel='stylesheet' href='style.css')
+    style(media='screen').
+      .warn {
+        color: red;
+        font-weight: bold;
+      }
+      .retr {
+        color:green;
+        font-weight: bold;
+      }
+      footer {
+        background-color: #18BC9C;
+        color: #fff;
+      }
+
+
+  body
+    nav.navbar.navbar-inverse
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-2')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand SillyName
+        #bs-example-navbar-collapse-2.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a(href='/') Home
+            li
+              a(href='/adduser') Add User
+            li
+              a(href='/about') About
+
+    block content
+
+    footer.footer.navbar-fixed-bottom
+      h5.text-center All Rights Reserved 2017 - Ayoub NEJJARI

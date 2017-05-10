@@ -41,8 +41,24 @@ client.on('connect', function() {
 app.get('/', function (req, res, next) {
   res.render('main');
 });
-app.get('/adduser', function (req, res, next) {
-  res.render('adduser'); // needs to be HTML
+app.get('/about', function(req, res, next) {
+    res.render('about');
+});
+app.get('/adduser', function(req, res, next) {
+  res.render('adduser');
+});
+app.get('/users/:id', function (req, res, next) {
+  let id = req.params.id;
+  client.hgetall(id, function(err, hash) {
+    if (err) {
+      console.log(err);
+      //res.render('error', {
+      //   error:err
+      // });
+    }
+    //console.log(hash);
+    res.render('user', {obj: hash, userid: id});
+  });
 });
 /* Search processing */
 
@@ -57,11 +73,7 @@ app.post('/users/search', function(req, res, next) {
         error: 'User doesn\'t exist!' // show error in case operation failed
       });
     } else {
-      //obj.id = id; // if user does exist, store the input id to obj.id
-       res.render('main', {
-        obj: hash,
-        message: 'User Has been retrived successfully!'
-       });
+       res.redirect('/users/'+id);
     console.log(hash);
     }
   });
