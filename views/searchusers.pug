@@ -1,0 +1,7 @@
+.container-fluid
+ h3 Search Users
+ form.navbar-form.navbar-left(role='search' method="POST" action="/users/search")
+        .form-group
+          input.form-control(type='text', placeholder='Search users by ID', name='id')
+        |
+        button.btn.btn-default(type='submit' value="search") Submit
