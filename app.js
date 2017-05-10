@@ -41,7 +41,9 @@ client.on('connect', function() {
 app.get('/', function (req, res, next) {
   res.render('main');
 });
-
+app.get('/adduser', function (req, res, next) {
+  res.render('adduser'); // needs to be HTML
+});
 /* Search processing */
 
 app.post('/users/search', function(req, res, next) {
@@ -65,6 +67,21 @@ app.post('/users/search', function(req, res, next) {
   });
 
 });
+
+app.post('/users', function(req, res, next) {
+  let id = req.body.id,
+      name = req.body.name,
+      age = req.body.age,
+      occup = req.body.occup;
+      client.hmset(id, {name:name, age:age, occup: occup}, function() {
+        console.log('data have been entered to databse!');
+
+      });
+      res.render('main', {
+        obj: {name:name, age:age, occup:occup},
+        message: 'User Has been Added successfully!'
+      });
+})
 
 
 
