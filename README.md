@@ -2,14 +2,14 @@
 
 
 
-####Manage'em -alpha
+#### Manage'em -alpha
  
  
  This is a simple NodeJs app backed by Redis databse and cahing system. I have built this app to get my hands a little bit dirty with Redis technology and its features.  
 
  
 
-##Requirements
+## Requirements
  * Redis 
  * NodeJS
  
