@@ -1,6 +1,6 @@
 # User management App with Node and Redis
 
-
+![](http://www.nikola-breznjak.com/blog/wp-content/uploads/2015/02/NodeRedis.jpg)
 
 #### Manage'em -alpha
  
