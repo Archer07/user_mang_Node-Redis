@@ -7,9 +7,13 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.17.1",
+    "consolidate": "^0.14.5",
     "express": "^4.15.2",
     "method-override": "^2.3.8",
-    "nunjucks": "^3.0.0",
+    "pug": "^2.0.0-rc.1",
     "redis": "^2.7.1"
+  },
+  "scripts": {
+    "build": "node app"
   }
 }
