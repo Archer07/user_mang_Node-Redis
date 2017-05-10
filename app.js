@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({extended:false}));
 
 // Method Override setting.
 // Lets you use HTTP verbs such as PUT and DELETE in places where the client doesn't support it
-/** I will use this middleware to Override using a query value.**/
 // override with POST having:  ?_method=DELETE
 app.use(methodOverride('_method'));
 
