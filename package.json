@@ -1,0 +1,15 @@
+{
+  "name": "user_management_app",
+  "version": "1.0.0",
+  "description": "Simple user managenemt app with NodeJS and Redis ",
+  "main": "app.js",
+  "author": "Ayoub Nejjari",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "method-override": "^2.3.8",
+    "nunjucks": "^3.0.0",
+    "redis": "^2.7.1"
+  }
+}
