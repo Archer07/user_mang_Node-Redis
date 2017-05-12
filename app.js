@@ -48,12 +48,12 @@ app.get('/adduser', function(req, res, next) {
   res.render('adduser');
 });
 app.get('/users', function(req, res, next) {
-    var users = {};
-
     client.keys('*', function(err, data) {
-      console.log(data);
+      if (err) {
+        console.log(err);
+      }
+      res.render('users', {obj: data});
     });
-    res.render('users');
 
 });
 app.get('/users/:id', function (req, res, next) {
@@ -61,9 +61,6 @@ app.get('/users/:id', function (req, res, next) {
   client.hgetall(id, function(err, hash) {
     if (err) {
       console.log(err);
-      //res.render('error', {
-      //   error:err
-      // });
     }
     //console.log(hash);
     res.render('user', {obj: hash, userid: id});

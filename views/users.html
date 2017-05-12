@@ -4,14 +4,11 @@ block content
   .container-fluid
     .col-md-4.col-md-offset-4
      if obj
-      h2.text-center.text-success.jumbotron List of users available 
+      h2.text-center.text-success.jumbotron List of users available.
       ul.list-group
-          li.list-group-item
-            |  #{obj.name}
-          li.list-group-item
-            |  #{obj.age}
-          li.list-group-item
-            |  #{obj.occup}
+        each val in obj
+          li.list-group-item= val
+
      else
       .col-md-4.col-md-offset-4
-        h2.text-center.text-success.jumbotron User does't exist
+        h2.text-center.text-success.jumbotron No User exists.
