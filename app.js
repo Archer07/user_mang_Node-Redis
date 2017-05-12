@@ -48,17 +48,23 @@ app.get('/adduser', function(req, res, next) {
   res.render('adduser');
 });
 app.get('/users', function(req, res, next) {
-    client.keys('*', function(err, data) {
+    client.keys('umnr:users:*', function(err, data) {
+      let users = [];
+      data.forEach(function(user) {
+        let usr = user.slice(11);
+        users.push(usr);
+      });
+      console.log(users);
       if (err) {
         console.log(err);
       }
-      res.render('users', {obj: data});
+      res.render('users', {obj: users});
     });
 
 });
 app.get('/users/:id', function (req, res, next) {
   let id = req.params.id;
-  client.hgetall(id, function(err, hash) {
+  client.hgetall('umnr:users:'+id, function(err, hash) {
     if (err) {
       console.log(err);
     }
@@ -71,7 +77,7 @@ app.get('/users/:id', function (req, res, next) {
 app.post('/users/search', function(req, res, next) {
   let id = req.body.id; // store the query data into the id variable
   // once we have the id we can start using Redis
-  client.hgetall(id, function (err, hash) {
+  client.hgetall('umnr:users:'+id, function (err, hash) {
     // check if the object didn't return
     if (!hash) {
       res.render('main', {
@@ -90,7 +96,8 @@ app.post('/users', function(req, res, next) {
       name = req.body.name,
       age = req.body.age,
       occup = req.body.occup;
-      client.hmset(id, {name:name, age:age, occup: occup}, function() {
+      email = req.body.email
+      client.hmset('umnr:users:'+id, {name:name, age:age, occupation: occup, email:email}, function() {
         console.log('data have been entered to databse!')
         res.render('addsuccess');
       });
@@ -99,7 +106,7 @@ app.post('/users', function(req, res, next) {
 });
 
 app.delete('/user/delete/:id', function(req, res, next) {
-      client.del(req.params.id, function(err) {
+      client.del('umnr:users:'+req.params.id, function(err) {
         if (err) {
           console.log(err);
         }

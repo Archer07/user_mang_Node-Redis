@@ -11,7 +11,9 @@ block content
           li.list-group-item
             |  #{obj.age}
           li.list-group-item
-            |  #{obj.occup}
+            |  #{obj.occupation}
+          li.list-group-item
+            |  #{obj.email}
       form.form-horizontal(role='delete' method="POST" action="/user/delete/"+userid+"?_method=DELETE")
         .form-group
             button.btn.btn-danger.pull-right(type='submit' value="Delete") Delete
