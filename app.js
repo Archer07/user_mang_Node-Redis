@@ -71,7 +71,6 @@ app.get('/users/:id', function (req, res, next) {
 app.post('/users/search', function(req, res, next) {
   let id = req.body.id; // store the query data into the id variable
   // once we have the id we can start using Redis
-
   client.hgetall(id, function (err, hash) {
     // check if the object didn't return
     if (!hash) {
@@ -97,9 +96,16 @@ app.post('/users', function(req, res, next) {
       });
 
 
-})
+});
 
-
+app.delete('/user/delete/:id', function(req, res, next) {
+      client.del(req.params.id, function(err) {
+        if (err) {
+          console.log(err);
+        }
+        res.redirect('/');
+      })
+});
 
 
 app.listen(PORT, function() {

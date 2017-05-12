@@ -12,6 +12,9 @@ block content
             |  #{obj.age}
           li.list-group-item
             |  #{obj.occup}
+      form.form-horizontal(role='delete' method="POST" action="/user/delete/"+userid+"?_method=DELETE")
+        .form-group
+            button.btn.btn-danger.pull-right(type='submit' value="Delete") Delete
      else
       .col-md-4.col-md-offset-4
         h2.text-center.text-success.jumbotron User does't exist
