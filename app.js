@@ -47,6 +47,15 @@ app.get('/about', function(req, res, next) {
 app.get('/adduser', function(req, res, next) {
   res.render('adduser');
 });
+app.get('/users', function(req, res, next) {
+    var users = {};
+
+    client.keys('*', function(err, data) {
+      console.log(data);
+    });
+    res.render('users');
+
+});
 app.get('/users/:id', function (req, res, next) {
   let id = req.params.id;
   client.hgetall(id, function(err, hash) {

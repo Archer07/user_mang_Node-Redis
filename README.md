@@ -12,6 +12,12 @@
 ## Requirements
  * Redis 
  * NodeJS
+ * Yarn package manager
+ 
+### Try it
+
+* yarn install
+* yarn build 
  
  
  
