@@ -10,15 +10,15 @@ block content
 
       form.form-horizontal(role='add' method="POST" action="/users")
         .form-group
-          input.form-control(type='text', placeholder='Username or ID', name='id')
+          input.form-control(type='text', placeholder='Username or ID', name='id' required)
         .form-group
-          input.form-control(type='text', placeholder='Full name', name='name')
+          input.form-control(type='text', placeholder='Full name', name='name' required)
         .form-group
-          input.form-control(type='text', placeholder='Age', name='age')
+          input.form-control(type='text', placeholder='Age', name='age' required)
         .form-group
-          input.form-control(type='text', placeholder='Occupation', name='occup')
+          input.form-control(type='text', placeholder='Occupation', name='occup' required)
         .form-group
-          input.form-control(type='text', placeholder='Email', name='email')
+          input.form-control(type='email', placeholder='Email', name='email' required)
         .form-group
           button.btn.btn-default(type='submit' value="Submit") Add
 

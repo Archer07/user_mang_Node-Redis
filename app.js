@@ -75,7 +75,8 @@ app.get('/users/:id', function (req, res, next) {
 /* Search processing */
 
 app.post('/users/search', function(req, res, next) {
-  let id = req.body.id; 
+  let id = req.body.id.trim(); 
+
   client.hgetall('umnr:users:'+id, function (err, hash) {
     // check if the object didn't return
     if (!hash) {
